@@ -27,11 +27,15 @@ export default Header;
 
 const Container = styled.div`
   width: 100vw;
-  height: 8vh;
+  min-height: 8vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 `;
 
 const Logo = styled.div`
@@ -62,4 +66,10 @@ const Menu = styled.div`
 
 const RightMenu = styled(Menu)`
   width: 20vw;
+  @media (max-width: 1060px) {
+    display: block;
+    width: 80vw;
+    display: flex;
+    justify-content: end;
+  }
 `;

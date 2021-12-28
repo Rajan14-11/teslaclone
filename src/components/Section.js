@@ -32,8 +32,6 @@ const Wrap = styled.div`
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
-  top: 0;
-  z-index: -1;
 `;
 const ItemText = styled.div`
   padding-top: 15vh;
