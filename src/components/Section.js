@@ -20,7 +20,7 @@ function Section(props) {
 export default Section;
 
 const Wrap = styled.div`
-  width: 100vw;
+  max-width: 100vw;
   height: 100vh;
   background-image: url("/images/model-s.jpg");
   background-size: cover;

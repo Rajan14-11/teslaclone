@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import CloseIcon from "@material-ui/icons/Close";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
+import { selectCars } from "../features/car/carSlice";
+import { useSelector } from "react-redux";
 function Header() {
   const [BurgerStatus, setBurgerStatus] = useState(false);
+  const cars = useSelector(selectCars);
+  console.log(cars);
   return (
     <Container>
       <Logo>
         <img src="/images/logo.svg" />
       </Logo>
       <Menu>
-        <button>Model 3</button>
-        <button>Model S</button>
-        <button>Model Y</button>
-        <button>Model X</button>
+        {cars && cars.map((car, index) => <button key={index}>{car}</button>)}
         <button>Solar Panels</button>
         <button>Solar Roof</button>
       </Menu>
@@ -26,6 +26,14 @@ function Header() {
         <CloseWrapper>
           <CustomClose onClick={() => setBurgerStatus(false)} />
         </CloseWrapper>
+        {cars &&
+          cars.map((car, index) => (
+            <li>
+              <a href="#" key={index}>
+                {car}
+              </a>
+            </li>
+          ))}
         <li>
           <a href="#">Existing Inventory</a>
         </li>
@@ -40,18 +48,6 @@ function Header() {
         </li>
         <li>
           <a href="#">Roadster</a>
-        </li>
-        <li>
-          <a href="#">Existing Inventory</a>
-        </li>
-        <li>
-          <a href="#">Existing Inventory</a>
-        </li>
-        <li>
-          <a href="#">Existing Inventory</a>
-        </li>
-        <li>
-          <a href="#">Existing Inventory</a>
         </li>
       </BurgerMenu>
     </Container>
@@ -112,7 +108,7 @@ const RightMenu = styled(Menu)`
 `;
 
 const BurgerMenu = styled.div`
-  width: 300px;
+  width: 260px;
   background: white;
   position: fixed;
   top: 0;
