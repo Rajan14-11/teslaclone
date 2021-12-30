@@ -9,8 +9,6 @@
 body {
   width: 100%;
   overflow-x: hidden;
-  background: rgb(223, 228, 238);
-  transition: all cubic-bezier();
 }
 
 @keyframes animateDown {
