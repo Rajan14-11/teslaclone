@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import CloseIcon from "@material-ui/icons/Close";
+import {AiOutlineClose} from "react-icons/ai"
 import { selectCars } from "../features/car/carSlice";
 import { useSelector } from "react-redux";
 function Header() {
@@ -28,7 +29,7 @@ function Header() {
         </CloseWrapper>
         {cars &&
           cars.map((car, index) => (
-            <li>
+            <li key={index}>
               <a href="#" key={index}>
                 {car}
               </a>
@@ -133,7 +134,7 @@ const BurgerMenu = styled.div`
   }
 `;
 
-const CustomClose = styled(CloseIcon)`
+const CustomClose = styled(AiOutlineClose)`
   cursor: pointer;
 `;
 
